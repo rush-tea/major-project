@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const db= require("../config/database");
-const User = require("./user");
 
 const Student = db.sequelize.define('Student',
   {
@@ -93,15 +92,7 @@ const Student = db.sequelize.define('Student',
     gender: {
         type: DataTypes.STRING,
         allowNull: false
-    },
-    // userId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: User,
-    //     key: "id",
-    //   },
-    // },
+    }
   },
   {
     timestamps: true,

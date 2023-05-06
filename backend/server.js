@@ -1,10 +1,11 @@
 const express = require('express');
-const mongoose = require('mongoose');
 const passport = require('passport');
 const bodyParser = require('body-parser');
 const authRoutes = require('./routes/authRoutes');
 const studentRoutes = require('./routes/studentRoutes');
-const { sequelize, jwtSecret } = require('./config/database');
+const companyRoutes = require('./routes/companyRoutes');
+const jobRoutes = require('./routes/jobRoutes');
+const { sequelize } = require('./config/database');
 
 const app = express();
 
@@ -27,6 +28,8 @@ require('./config/passport')(passport);
 // Set up authentication routes
 app.use('/auth', authRoutes);
 app.use('/student',studentRoutes);
+app.use('/company', companyRoutes);
+app.use('/', jobRoutes);
 
 // Set up error handling middleware
 app.use((err, req, res, next) => {

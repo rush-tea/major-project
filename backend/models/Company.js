@@ -1,6 +1,5 @@
 const { DataTypes } = require("sequelize");
 const db = require("../config/database");
-const User = require("./user");
 
 const Company = db.sequelize.define('Company',
   {
@@ -9,18 +8,14 @@ const Company = db.sequelize.define('Company',
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    companyName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // userId: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   references: {
-    //     model: User,
-    //     key: "id",
-    //   },
-    // },
+    companyDescription: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
   },
   {
     timestamps: true
