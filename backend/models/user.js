@@ -23,13 +23,17 @@ const User = db.sequelize.define('User', {
     type: DataTypes.ENUM('company', 'admin', 'student'),
     allowNull: false,
     defaultValue: 'student',
-  },},
-  {
-    timestamps: true
+  }
+}, {
+  timestamps: true
 });
 
-User.hasOne(Student);
-User.hasOne(Company);
-User.hasOne(Admin);
+Student.belongsTo(User, { foreignKey: 'userId' });
+Company.belongsTo(User, { foreignKey: 'userId' });
+Admin.belongsTo(User, { foreignKey: 'userId' });
+
+User.hasOne(Student, { foreignKey: 'userId' });
+User.hasOne(Company, { foreignKey: 'userId' });
+User.hasOne(Admin, { foreignKey: 'userId' });
 
 module.exports = User;

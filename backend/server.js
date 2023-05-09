@@ -5,6 +5,7 @@ const authRoutes = require('./routes/authRoutes');
 const studentRoutes = require('./routes/studentRoutes');
 const companyRoutes = require('./routes/companyRoutes');
 const jobRoutes = require('./routes/jobRoutes');
+const applicationRoutes = require('./routes/applicationRoutes');
 const { sequelize } = require('./config/database');
 
 const app = express();
@@ -30,6 +31,7 @@ app.use('/auth', authRoutes);
 app.use('/student',studentRoutes);
 app.use('/company', companyRoutes);
 app.use('/', jobRoutes);
+app.use('/student',applicationRoutes);
 
 // Set up error handling middleware
 app.use((err, req, res, next) => {

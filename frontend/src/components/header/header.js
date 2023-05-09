@@ -11,6 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import { Link } from 'react-router-dom';
 
 const pages = ['Login', 'Register', 'Contact Us'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -119,7 +120,7 @@ const Header = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: '#485664', display: 'block' }}
               >
-                {page}
+                <Link to={'/register'}>{page}</Link>
               </Button>
             ))}
           </Box>
